@@ -257,6 +257,10 @@ table tr:hover {
     .social-links {
         flex-direction: column;
     }
+    
+    #elective-options {
+        grid-template-columns: 1fr !important;
+    }
 }
 
 /* Skills tags */

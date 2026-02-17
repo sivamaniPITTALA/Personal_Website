@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initCardEffects();
     initTableEffects();
     initHobbySearch();
+    initTimetableFilters();
 });
 
 // Navigation active state highlighting
@@ -405,40 +406,79 @@ function initHobbySearch() {
 // Timetable filter functionality
 function initTimetableFilters() {
     const programSelect = document.getElementById('program-select');
-    const electiveCheckboxes = document.querySelectorAll('input[type="checkbox"][value^="Elective"], input[type="checkbox"][value*="("]');
+    const electiveOptions = document.getElementById('elective-options');
     const timetableTable = document.getElementById('timetable-table');
+    const electiveSlots = document.querySelectorAll('.elective-slot');
 
-    if (!programSelect || !timetableTable) return;
+    if (!timetableTable || !electiveOptions) return;
 
-    function updateTimetable() {
-        const selectedElectives = Array.from(electiveCheckboxes)
-            .filter(cb => cb.checked)
-            .map(cb => cb.value);
+    const bins = electiveOptions.querySelectorAll('.elective-bin');
 
-        // Update elective slots in timetable
-        const electiveSlots = ['E1', 'E2', 'E3', 'E4', 'E5', 'E6'];
-        electiveSlots.forEach((slot, index) => {
-            const cells = timetableTable.querySelectorAll(`td:contains("${slot}")`);
-            cells.forEach(cell => {
-                if (selectedElectives[index]) {
-                    cell.textContent = selectedElectives[index];
-                } else {
-                    cell.textContent = slot;
-                }
-            });
+    function updateTimetable(e) {
+        const checkedBins = Array.from(bins).filter(bin => bin.querySelector('.bin-check').checked);
+        
+        // Limit selection to exactly 4
+        if (checkedBins.length > 4 && e && e.target && e.target.classList.contains('bin-check')) {
+            e.target.checked = false;
+            showNotification('You can select maximum 4 electives', 'error');
+            return;
+        }
+
+        // Mapping of bin to selected subject
+        const selection = {};
+        bins.forEach(bin => {
+            const checkbox = bin.querySelector('.bin-check');
+            const select = bin.querySelector('.bin-select');
+            const binId = checkbox.getAttribute('data-bin');
+            
+            if (checkbox.checked) {
+                selection[binId] = select.value;
+                bin.style.opacity = '1';
+                bin.style.borderColor = '#3498db';
+                select.disabled = false;
+            } else {
+                bin.style.opacity = '0.5';
+                bin.style.borderColor = '#ddd';
+                select.disabled = true;
+            }
         });
 
-        // Limit selection to 4 electives
-        const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
-        if (checkedBoxes.length > 4) {
-            checkedBoxes[checkedBoxes.length - 1].checked = false;
-            showNotification('You can select maximum 4 electives', 'error');
+        // Update each elective slot in the table
+        electiveSlots.forEach(slot => {
+            const binId = slot.getAttribute('data-slot'); // E1, E2, etc.
+            if (selection[binId]) {
+                // Remove underscores/extra spaces for cleaner display if needed
+                slot.textContent = selection[binId];
+                slot.style.backgroundColor = '#e8f4fd';
+                slot.style.fontWeight = '600';
+                slot.style.color = '#2c3e50';
+            } else {
+                slot.textContent = '-';
+                slot.style.backgroundColor = '#f8f9fa';
+                slot.style.fontWeight = 'normal';
+                slot.style.color = '#95a5a6';
+            }
+        });
+
+        // Check if exactly 4 are selected
+        if (checkedBins.length < 4 && e && e.type === 'change') {
+            // Just a reminder, don't block yet
+            console.log('Please select exactly 4 electives');
         }
     }
 
     // Add event listeners
-    programSelect.addEventListener('change', updateTimetable);
-    electiveCheckboxes.forEach(cb => cb.addEventListener('change', updateTimetable));
+    bins.forEach(bin => {
+        const checkbox = bin.querySelector('.bin-check');
+        const select = bin.querySelector('.bin-select');
+        
+        checkbox.addEventListener('change', updateTimetable);
+        select.addEventListener('change', updateTimetable);
+    });
+
+    if (programSelect) {
+        programSelect.addEventListener('change', updateTimetable);
+    }
 
     // Initial update
     updateTimetable();
