@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable - Sivamani Pittala</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="education.html">🎓 Education</a></li>
+            <li><a href="hobbies.html">🎯 Hobbies</a></li>
+            <li><a href="technical.html">💻 Technical</a></li>
+            <li><a href="miscellaneous.html">📱 Social Media</a></li>
+            <li><a href="contact.html">📞 Contact</a></li>
+            <li><a href="questions.html">❓ Q&A</a></li>
+            <li><a href="timetable.html" class="active">📅 Timetable</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>📅 M.Tech Computer Science Timetable</h1>
+        <p>Interactive Timetable with Elective Selection</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Filter Options</h2>
+            <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
+                <div>
+                    <label for="program-select"><strong>Program:</strong></label>
+                    <select id="program-select">
+                        <option value="mtech-cs" selected>M.Tech Computer Science</option>
+                        <!-- Add more programs if needed -->
+                    </select>
+                </div>
+                <div>
+                    <label><strong>Select 4 Electives (E1-E6):</strong></label>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <label><input type="checkbox" value="Network_Security_WN (CS475)" checked> E1: Network Security</label>
+                        <label><input type="checkbox" value="Soft_Computing_PSP" checked> E2: Soft Computing</label>
+                        <label><input type="checkbox" value="Cloud_Computing_SNS (CS472)" checked> E3: Cloud Computing</label>
+                        <label><input type="checkbox" value="VIRTUALIZAION_RW" checked> E4: Virtualization</label>
+                        <label><input type="checkbox" value="Elective5"> E5: Elective 5</label>
+                        <label><input type="checkbox" value="Elective6"> E6: Elective 6</label>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #666;">Note: You can select up to 4 electives. Default selections are based on your choices.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Timetable</h2>
+            <table id="timetable-table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>9:00 - 10:00</td>
+                        <td>Data Structures</td>
+                        <td>Algorithms</td>
+                        <td>Machine Learning</td>
+                        <td>Database Systems</td>
+                        <td>Web Technologies</td>
+                    </tr>
+                    <tr>
+                        <td>10:00 - 11:00</td>
+                        <td>Operating Systems</td>
+                        <td>Computer Networks</td>
+                        <td>E1</td>
+                        <td>E2</td>
+                        <td>Software Engineering</td>
+                    </tr>
+                    <tr>
+                        <td>11:00 - 12:00</td>
+                        <td>E3</td>
+                        <td>E4</td>
+                        <td>Artificial Intelligence</td>
+                        <td>Big Data Analytics</td>
+                        <td>Project Work</td>
+                    </tr>
+                    <tr>
+                        <td>12:00 - 13:00</td>
+                        <td>Lunch Break</td>
+                        <td>Lunch Break</td>
+                        <td>Lunch Break</td>
+                        <td>Lunch Break</td>
+                        <td>Lunch Break</td>
+                    </tr>
+                    <tr>
+                        <td>13:00 - 14:00</td>
+                        <td>Lab: Data Structures</td>
+                        <td>Lab: Algorithms</td>
+                        <td>Lab: ML</td>
+                        <td>Lab: Networks</td>
+                        <td>Lab: Web Tech</td>
+                    </tr>
+                    <tr>
+                        <td>14:00 - 15:00</td>
+                        <td>E5</td>
+                        <td>E6</td>
+                        <td>Seminar</td>
+                        <td>Research Methods</td>
+                        <td>Elective Lab</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Sivamani Pittala. All rights reserved. ✨</p>
+        <p>
+            <a href="https://www.instagram.com/sivamani.pittala/">📸 Instagram</a> |
+            <a href="https://www.linkedin.com/in/sivamani-pittala">💼 LinkedIn</a> |
+            <a href="https://github.com/sivamaniPITTALA">🐙 GitHub</a>
+        </p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

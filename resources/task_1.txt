@@ -1,0 +1,14 @@
+
+    1. What are the two main sections of an HTML file?
+    2. Did you separate your HTML and CSS into separate files or put the CSS within the HTML file?
+        a. If you separated them, which HTML tags did you use to link the two?
+        b. If you didn't separate them, what HTML tags did you use to specify the CSS content?
+        c. In which section of the HTML file, did you put them?
+    3. Did you use any W3schools template? If so, which template did you use? How did you link it with your HTML file?
+    4. Did you use any web fonts? If so, which ones and how did you link them into your HTML file?
+    5. Is your website organised as a single HTML file with sections or multiple HTML files linked through anchor tags
+    6. How much time did you spend choosing the fonts and colour combinations 😅?
+    7. Does your webpage have a sidebar or a drop-down menu? If so, what HTML tags did you use?
+    8. If you answered YES to the previous question, then answer this.
+       Did you see any javscript code for such features? Were you able to understand it?
+    9. Is your webpage responsive? What do you mean by it?
