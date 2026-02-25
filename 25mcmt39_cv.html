@@ -1,0 +1,837 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sivamani Pittala - CV/Bio-data</title>
+    <style>
+        /* CSS Variables for Theme Switching */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --sidebar-bg: #2c3e50;
+            --sidebar-text: #ecf0f1;
+            --section-bg: rgba(255, 255, 255, 0.95);
+            --section-border: #3498db;
+            --heading-color: #2c3e50;
+            --card-bg: #f8f9fa;
+            --card-border: #3498db;
+            --link-color: #3498db;
+            --skill-tag-bg: #3498db;
+            --accent-color: #3498db;
+        }
+
+        /* Alternate Theme - Blue on Cream */
+        .theme-alternate {
+            --bg-color: #f5f5dc;
+            --text-color: #1a5276;
+            --sidebar-bg: #1a3a5c;
+            --sidebar-text: #e8e8d0;
+            --section-bg: rgba(245, 245, 220, 0.95);
+            --section-border: #1a5276;
+            --heading-color: #1a5276;
+            --card-bg: #e8e8d0;
+            --card-border: #1a5276;
+            --link-color: #1a5276;
+            --skill-tag-bg: #1a5276;
+            --accent-color: #1a5276;
+        }
+
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        /* Parallax Background Container */
+        .parallax-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            background-image: url('images/profile.jpeg');
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        /* Parallax Overlay */
+        .parallax-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 100%);
+            z-index: -1;
+        }
+
+        /* Main Container */
+        .main-container {
+            display: flex;
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Left Sidebar - 25% */
+        .sidebar {
+            width: 25%;
+            min-height: 100vh;
+            background-color: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            padding: 2rem 1rem;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background-color 0.5s;
+            box-shadow: 4px 0 15px rgba(0,0,0,0.2);
+        }
+
+        /* Profile Image in Sidebar */
+        .sidebar-profile {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+            width: 100%;
+        }
+
+        .sidebar-profile img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid var(--accent-color);
+            object-fit: cover;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .sidebar-profile h2 {
+            font-size: 1.4rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .sidebar-profile p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Navigation in Sidebar */
+        .sidebar-nav {
+            width: 100%;
+            flex-grow: 1;
+        }
+
+        .sidebar-nav ul {
+            list-style: none;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-nav a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--sidebar-text);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            border-left: 3px solid transparent;
+        }
+
+        .sidebar-nav a:hover,
+        .sidebar-nav a.active {
+            background-color: rgba(255,255,255,0.15);
+            border-left-color: var(--accent-color);
+            padding-left: 1.5rem;
+        }
+
+        /* Theme Toggle Buttons */
+        .theme-toggle {
+            width: 100%;
+            padding-top: 1.5rem;
+            border-top: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .theme-toggle h3 {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        .theme-buttons {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .theme-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--accent-color);
+            background: transparent;
+            color: var(--sidebar-text);
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .theme-btn:hover,
+        .theme-btn.active {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* Right Content - 75% */
+        .content {
+            width: 75%;
+            margin-left: 25%;
+            padding: 2rem;
+        }
+
+        /* CV Sections */
+        .cv-section {
+            background-color: var(--section-bg);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--section-border);
+            transition: all 0.5s ease;
+            scroll-margin-top: 2rem;
+        }
+
+        .cv-section h2 {
+            color: var(--heading-color);
+            border-bottom: 3px solid var(--section-border);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .cv-section h3 {
+            color: var(--heading-color);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+
+        /* Education Items */
+        .education-item {
+            border-left: 3px solid var(--section-border);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            background-color: var(--card-bg);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .education-item .year {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .education-item .institution {
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        /* Skill Tags */
+        .skill-tag {
+            display: inline-block;
+            background-color: var(--skill-tag-bg);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            margin: 0.25rem;
+            font-size: 0.85rem;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.1);
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--card-bg);
+            border-left: 4px solid var(--card-border);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .card h4 {
+            color: var(--heading-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin: 0.75rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-info a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background-color: var(--card-bg);
+        }
+
+        table th, table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--text-color);
+        }
+
+        table th {
+            background-color: var(--heading-color);
+            color: white;
+        }
+
+        table tr:hover {
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+
+        /* Links */
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 30%;
+            }
+            .content {
+                margin-left: 30%;
+                width: 70%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                min-height: auto;
+                position: relative;
+                padding: 1.5rem 1rem;
+            }
+
+            .sidebar-profile {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                text-align: left;
+            }
+
+            .sidebar-profile img {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 0;
+            }
+
+            .sidebar-nav ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+
+            .sidebar-nav li {
+                margin-bottom: 0;
+            }
+
+            .sidebar-nav a {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.85rem;
+                border-left: none;
+                border-bottom: 2px solid transparent;
+            }
+
+            .sidebar-nav a:hover,
+            .sidebar-nav a.active {
+                padding-left: 0.75rem;
+                border-left: none;
+                border-bottom-color: var(--accent-color);
+            }
+
+            .content {
+                margin-left: 0;
+                width: 100%;
+                padding: 1rem;
+            }
+
+            .cv-section {
+                padding: 1.5rem;
+            }
+
+            .cv-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sidebar-profile {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .sidebar-nav ul {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .cv-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .skill-tag {
+                font-size: 0.75rem;
+                padding: 0.25rem 0.6rem;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            margin-top: 2rem;
+            border-radius: 10px;
+        }
+
+        footer a {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Parallax Background -->
+    <div class="parallax-container"></div>
+    <div class="parallax-overlay"></div>
+
+    <div class="main-container">
+        <!-- Left Sidebar - 25% -->
+        <aside class="sidebar">
+            <div class="sidebar-profile">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <img src="images/profile.jpeg" alt="Sivamani Pittala">
+                    <div>
+                        <h2>Sivamani Pittala</h2>
+                        <p>M.Tech (Pursuing)</p>
+                    </div>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#about">👤 About Me</a></li>
+                    <li><a href="#education">🎓 Education</a></li>
+                    <li><a href="#skills">💻 Skills</a></li>
+                    <li><a href="#projects">🚀 Projects</a></li>
+                    <li><a href="#certifications">🎖️ Certifications</a></li>
+                    <li><a href="#hobbies">🎯 Hobbies</a></li>
+                    <li><a href="#contact">📞 Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="theme-toggle">
+                <h3>🎨 Theme</h3>
+                <div class="theme-buttons">
+                    <button class="theme-btn active" onclick="setTheme('default')">Default</button>
+                    <button class="theme-btn" onclick="setTheme('alternate')">Blue/Cream</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Content - 75% -->
+        <main class="content">
+            <!-- About Section -->
+            <section id="about" class="cv-section">
+                <h2>👤 About Me</h2>
+                <p>I am a dedicated and motivated Computer Science Engineering student currently pursuing my M.Tech in Computer Science at the University of Hyderabad. With a strong foundation in programming, data analysis, and machine learning, I am committed to leveraging technology to solve complex problems and drive innovation in the digital era.</p>
+                
+                <h3>🎯 Professional Objective</h3>
+                <p>To secure a challenging position in a reputable organization where I can utilize my technical skills, contribute to meaningful projects, and continuously learn and grow in the field of computer science and data science.</p>
+
+                <h3>🌐 Languages</h3>
+                <ul>
+                    <li>English (Read, Write & Speak)</li>
+                    <li>Telugu (Read, Write & Speak)</li>
+                    <li>Hindi (Read, Write & Speak)</li>
+                </ul>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education" class="cv-section">
+                <h2>🎓 Education</h2>
+
+                <div class="education-item">
+                    <div class="year">🎓 2025-2027 (Pursuing)</div>
+                    <div class="institution">🏛️ University of Hyderabad</div>
+                    <div>
+                        <h3>Master of Technology (M.Tech)</h3>
+                        <p>Specialization: Computer Science 💻</p>
+                        <p>Currently pursuing M.Tech with focus on advanced computer science topics and research.</p>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="year">📅 2021-2025</div>
+                    <div class="institution">🏛️ Kakatiya Institute of Technology and Science (KITSW)</div>
+                    <div>
+                        <h3>Bachelor of Technology (B.Tech)</h3>
+                        <p>Specialization: Computer Science & Engineering 💻</p>
+                        <p><strong>CGPA:</strong> 8.53 🎯</p>
+                        <p>Affiliated to Kakatiya University</p>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="year">📅 2019-2021</div>
+                    <div class="institution">🏛️ Narayana Junior College</div>
+                    <div>
+                        <h3>Intermediate (MPC)</h3>
+                        <p>Board: Telangana State Board</p>
+                        <p><strong>Percentage:</strong> 93% 🎯</p>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="year">📅 2019</div>
+                    <div class="institution">🏛️ Shine High School</div>
+                    <div>
+                        <h3>Secondary School Certificate (SSC)</h3>
+                        <p>Board: Telangana State Board</p>
+                        <p><strong>CGPA:</strong> 9.5 🎯</p>
+                    </div>
+                </div>
+
+                <h3>📈 Academic Performance</h3>
+                <table>
+                    <tr>
+                        <th>Qualification</th>
+                        <th>Institution</th>
+                        <th>Score</th>
+                        <th>Year</th>
+                    </tr>
+                    <tr>
+                        <td>M.Tech (Pursuing)</td>
+                        <td>University of Hyderabad</td>
+                        <td>CGPA: 5.33</td>
+                        <td>2025-2027</td>
+                    </tr>
+                    <tr>
+                        <td>B.Tech</td>
+                        <td>KITSW</td>
+                        <td>CGPA: 8.53</td>
+                        <td>2021-2025</td>
+                    </tr>
+                    <tr>
+                        <td>Intermediate</td>
+                        <td>Narayana Junior College</td>
+                        <td>PCT: 93%</td>
+                        <td>2019-2021</td>
+                    </tr>
+                    <tr>
+                        <td>SSC</td>
+                        <td>Shine High School</td>
+                        <td>CGPA: 9.5</td>
+                        <td>2019</td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="cv-section">
+                <h2>💻 Technical Skills</h2>
+                
+                <h3>💻 Programming</h3>
+                <div>
+                    <span class="skill-tag">Python (Advanced)</span>
+                    <span class="skill-tag">C (Proficient)</span>
+                    <span class="skill-tag">Java (Intermediate)</span>
+                </div>
+
+                <h3>📊 Data Analysis & Visualization</h3>
+                <div>
+                    <span class="skill-tag">Power BI</span>
+                    <span class="skill-tag">Tableau</span>
+                </div>
+
+                <h3>🤖 Machine Learning</h3>
+                <div>
+                    <span class="skill-tag">Model Building</span>
+                    <span class="skill-tag">Predictive Analytics</span>
+                </div>
+
+                <h3>🗄️ Database Management</h3>
+                <div>
+                    <span class="skill-tag">SQL</span>
+                </div>
+
+                <h3>🏆 GATE 2025 Scores</h3>
+                <table>
+                    <tr>
+                        <th>Paper</th>
+                        <th>Registration No.</th>
+                        <th>Score</th>
+                        <th>Rank</th>
+                    </tr>
+                    <tr>
+                        <td>Computer Science (CS)</td>
+                        <td>CS25S17516021</td>
+                        <td>377</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Data Science (DA)</td>
+                        <td>DA25S57516021</td>
+                        <td>350</td>
+                        <td>8314</td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="cv-section">
+                <h2>🚀 Projects</h2>
+
+                <div class="card">
+                    <h4>📈 Tata Group Data Visualization Simulation</h4>
+                    <p>Created data visualizations for Tata Consultancy Services, prepared client meeting questions, and developed visuals for executive decision-making.</p>
+                </div>
+
+                <div class="card">
+                    <h4>🔧 Predictive Maintenance Model</h4>
+                    <p>Developed a machine learning model to predict equipment failures using historical data, optimizing maintenance schedules and reducing downtime.</p>
+                </div>
+
+                <div class="card">
+                    <h4>👥 Customer Segmentation Analysis</h4>
+                    <p>Performed clustering analysis to segment customers based on purchasing behavior, enabling targeted marketing strategies for improved customer engagement.</p>
+                </div>
+
+                <div class="card">
+                    <h4>📊 Sales Data Analysis</h4>
+                    <p>Analyzed sales data to identify trends and improve sales strategies using Python and SQL.</p>
+                </div>
+            </section>
+
+            <!-- Certifications Section -->
+            <section id="certifications" class="cv-section">
+                <h2>🎖️ Certifications & Internships</h2>
+
+                <div class="card">
+                    <h4>🔌 Cisco AICTE Virtual Internship</h4>
+                    <p>Completed virtual internship program under AICTE in collaboration with Cisco. ✅</p>
+                </div>
+
+                <div class="card">
+                    <h4>🐍 Programming in Python - Microsoft Technology Associate</h4>
+                    <p>Certified in Programming in Python from Microsoft Technology Associate. 📜</p>
+                </div>
+
+                <div class="card">
+                    <h4>☁️ AWS Machine Learning Essentials</h4>
+                    <p>Completed AWS Training and Certification: Machine Learning Essentials for Business and Technical Decision Makers (January 11, 2023). 🏆</p>
+                </div>
+
+                <div class="card">
+                    <h4>📊 Cisco Academy Data Analytics Essentials</h4>
+                    <p>Completed Data Analytics Essentials course from Cisco Academy. 🎯</p>
+                </div>
+
+                <div class="card">
+                    <h4>📋 TCS iON NQT - IT</h4>
+                    <p>Successfully completed TCS iON National Qualifier Test for IT roles. ✅</p>
+                    <a href="https://drive.google.com/file/d/1V6057D7TiaSAnuFxYXyjmr9WeSDiMTrp/view?usp=sharing" target="_blank" class="external-link">View Certificate 📎</a>
+                </div>
+            </section>
+
+            <!-- Hobbies Section -->
+            <section id="hobbies" class="cv-section">
+                <h2>🎯 Hobbies & Interests</h2>
+
+                <div class="card">
+                    <h3>📚 Reading Technical Books</h3>
+                    <p>I have a keen interest in reading technical books to stay updated with the latest technologies, programming languages, and data science concepts.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🧩 Problem-Solving Challenges</h3>
+                    <p>I enjoy participating in coding competitions and solving algorithmic problems on platforms like LeetCode, HackerRank, and CodeChef.</p>
+                </div>
+
+                <div class="card">
+                    <h3>✍️ Website Blogging</h3>
+                    <p>I maintain a personal blog where I share my technical knowledge and learning journey on Medium and Dev.to.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🐙 Open-Source Contributions</h3>
+                    <p>I actively contribute to open-source projects on GitHub.</p>
+                </div>
+
+                <div class="card">
+                    <h3>📢 Public Relations at NSS KITSW</h3>
+                    <p>As the Public Relations Officer for the National Service Scheme (NSS) at KITSW.</p>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="cv-section">
+                <h2>📞 Contact Information</h2>
+                <ul class="contact-info">
+                    <li>📧 <strong>Email:</strong> <a href="mailto:sivamanipittala@gmail.com">sivamanipittala@gmail.com</a></li>
+                    <li>📱 <strong>Phone:</strong> +91-7671024373</li>
+                    <li>📍 <strong>Location:</strong> Telangana, India</li>
+                    <li>💻 <strong>GitHub:</strong> <a href="https://github.com/sivamaniPITTALA" target="_blank">github.com/sivamaniPITTALA</a></li>
+                    <li>🔗 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/sivamani-pittala" target="_blank">linkedin.com/in/sivamani-pittala</a></li>
+                    <li>📸 <strong>Instagram:</strong> <a href="https://www.instagram.com/sivamani.pittala/" target="_blank">@sivamani.pittala</a></li>
+                </ul>
+            </section>
+
+            <footer>
+                <p>&copy; 2025 Sivamani Pittala. All rights reserved. ✨</p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        // Theme Switching Function
+        function setTheme(theme) {
+            const body = document.body;
+            const buttons = document.querySelectorAll('.theme-btn');
+
+            if (theme === 'alternate') {
+                body.classList.add('theme-alternate');
+                buttons[0].classList.remove('active');
+                buttons[1].classList.add('active');
+            } else {
+                body.classList.remove('theme-alternate');
+                buttons[1].classList.remove('active');
+                buttons[0].classList.add('active');
+            }
+
+            // Save theme preference to localStorage
+            localStorage.setItem('cv-theme', theme);
+        }
+
+        // Load saved theme preference on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('cv-theme');
+            if (savedTheme) {
+                setTheme(savedTheme);
+            }
+
+            // Active link highlighting based on scroll position
+            const sections = document.querySelectorAll('.cv-section');
+            const navLinks = document.querySelectorAll('.sidebar-nav a');
+
+            window.addEventListener('scroll', function() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // Add smooth entrance animation for sections
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.cv-section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                observer.observe(section);
+            });
+        });
+
+        console.log('Sivamani Pittala - CV Website loaded successfully!');
+    </script>
+</body>
+</html>
+

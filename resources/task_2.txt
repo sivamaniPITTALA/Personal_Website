@@ -1,0 +1,8 @@
+
+    1. Which website/section of the website did you choose? Why?
+    2. What did you identify as weaknesses in that page?
+    3. What are your main ideas for improving the page?
+    4. Which interactive elements did you incorporate into your design?
+    5. Give two specific examples from the page that you think are better after your redesign. Explain why.
+    6. Which mouse and keypress elements did you use?
+    7. How does mouseover event differ in its effects from mouseenter and mouseleave events? You can use WWW searches to answer this question.

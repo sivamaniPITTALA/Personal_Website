@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q&A - Sivamani Pittala</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="education.html">🎓 Education</a></li>
+            <li><a href="hobbies.html">🎯 Hobbies</a></li>
+            <li><a href="technical.html">💻 Technical</a></li>
+            <li><a href="miscellaneous.html">📱 Social Media</a></li>
+            <li><a href="contact.html">📞 Contact</a></li>
+            <li class="dropdown">
+                <a href="questions.html" class="dropbtn">❓ Q&A ▾</a>
+                <div class="dropdown-content">
+                    <a href="questions.html#task1">Task 1 - HTML/CSS</a>
+                    <a href="questions.html#task2">Task 2 - JavaScript</a>
+                    <a href="questions.html#task2extra">Task 2 Extra - CV Design</a>
+                </div>
+            </li>
+            <li><a href="timetable.html">📅 Timetable</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>❓ Website Q&A</h1>
+        <p>Questions About This Website 📖</p>
+    </header>
+
+    <main>
+        <section id="task1">
+            <h2>📝 Task -1: HTML & CSS Implementation</h2>
+            <p>As part of my HTML/CSS assignment, I have answered all the required questions below. This page explains the design choices, implementation decisions, and technical concepts used in building this portfolio website.</p>
+
+            <div class="question">
+                <h3>1. What are the two main sections of an HTML file?</h3>
+                <p>The two main sections of an HTML file are:</p>
+                <ul>
+                    <li><strong>📌 Head section (<head>):</strong> Contains metadata, title, character encoding, and links to external resources like CSS files.</li>
+                    <li><strong>📄 Body section (<body>):</strong> Contains all the visible content of the webpage including text, images, links, and other elements.</li>
+                </ul>
+            </div>
+
+            <div class="question">
+                <h3>2. Did you separate your HTML and CSS into separate files or put the CSS within the HTML file?</h3>
+                <p><strong>✅ I separated the HTML and CSS into separate files.</strong></p>
+                <p>HTML files are located in the main directory, and the CSS file is in the css/ subdirectory as <code>style.css</code>.</p>
+            </div>
+
+            <div class="question">
+                <h3>2a. If you separated them, which HTML tags did you use to link the two?</h3>
+                <p>I used the <strong><link></strong> tag in the head section to link the external CSS file:</p>
+                <p><code><link rel="stylesheet" href="css/style.css"></code></p>
+            </div>
+
+            <div class="question">
+                <h3>2b. If you didn't separate them, what HTML tags did you use to specify the CSS content?</h3>
+                <p><strong>N/A - I separated my HTML and CSS into different files.</strong></p>
+            </div>
+
+            <div class="question">
+                <h3>2c. In which section of the HTML file, did you put them?</h3>
+                <p>The <strong><link></strong> tag is placed in the <strong><head></strong> section of each HTML file, before any content elements.</p>
+            </div>
+
+            <div class="question">
+                <h3>3. Did you use any W3schools template? If so, which template did you use? How did you link it with your HTML file?</h3>
+                <p><strong>❌ No, I did not use any W3Schools template.</strong></p>
+                <p>I created a custom CSS design from scratch using modern CSS features like flexbox, grid layouts, and responsive design principles.</p>
+            </div>
+
+            <div class="question">
+                <h3>4. Did you use any web fonts? If so, which ones and how did you link them into your HTML file?</h3>
+                <p><strong>✅ Yes, I used web-safe fonts.</strong></p>
+                <p>I used the 'Segoe UI' font family with fallback options (Tahoma, Geneva, Verdana, sans-serif). These are system fonts that don't require external linking as they are available on most operating systems.</p>
+                <p>The font is specified in the CSS file:</p>
+                <p><code>font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;</code></p>
+            </div>
+
+            <div class="question">
+                <h3>5. Is your website organised as a single HTML file with sections or multiple HTML files linked through anchor tags?</h3>
+                <p><strong>✅ Multiple HTML files linked through navigation.</strong></p>
+                <p>I created separate HTML files for each page (index.html, education.html, hobbies.html, technical.html, miscellaneous.html, contact.html, questions.html), and they are linked together through the navigation menu using anchor tags (<code><a href="filename.html"></code>).</p>
+                <p>This approach provides better organization and makes it easier to maintain each section independently.</p>
+            </div>
+
+            <div class="question">
+                <h3>6. How much time did you spend choosing the fonts and colour combinations?</h3>
+                <p><strong>⏱️ About 1-2 hours.</strong></p>
+                <p>I wanted to create a professional-looking portfolio website, so I spent time selecting colors that would convey trust and professionalism (blue tones) while keeping the design clean and readable. I chose a color palette with:</p>
+                <ul>
+                    <li>Primary: #2c3e50 (Dark Blue)</li>
+                    <li>Accent: #3498db (Bright Blue)</li>
+                    <li>Background: #f5f5f5 (Light Gray)</li>
+                </ul>
+                <p>These colors provide good contrast and a modern aesthetic.</p>
+            </div>
+
+            <div class="question">
+                <h3>7. Does your webpage have a sidebar or a drop-down menu? If so, what HTML tags did you use?</h3>
+                <p><strong>✅ Yes, I have a horizontal navigation menu.</strong></p>
+                <p>I used an <strong>unordered list (<ul>)</strong> inside a <strong><nav></strong> element, with list items (<li>) containing anchor tags (<a>).</p>
+                <p>The navigation is styled to be horizontal and responsive, transforming to a vertical layout on mobile devices.</p>
+            </div>
+
+            <div class="question">
+                <h3>8. If you answered YES to the previous question, then answer this. Did you see any JavaScript code for such features? Were you able to understand it?</h3>
+                <p><strong>❌ No JavaScript code was used for the navigation.</strong></p>
+                <p>The navigation and responsive design work using pure HTML and CSS. However, I later added JavaScript for enhanced functionality like smooth scrolling, scroll-to-top button, and form validation.</p>
+                <p>Yes, I was able to understand the JavaScript code as it follows standard DOM manipulation patterns.</p>
+            </div>
+
+            <div class="question">
+                <h3>9. Is your webpage responsive? What do you mean by it?</h3>
+                <p><strong>✅ Yes, my webpage is responsive.</strong></p>
+                <p><strong>📱 What is Responsive Design?</strong></p>
+                <p>Responsive web design means that the website automatically adjusts its layout and content to look good on all devices, from desktop computers to tablets and mobile phones. This is achieved using:</p>
+                <ul>
+                    <li>📐 Flexible grid layouts using percentages</li>
+                    <li>📱 CSS media queries to detect screen size</li>
+                    <li>🖼️ Fluid images that scale appropriately</li>
+                    <li>🔄 Adjustable navigation for smaller screens</li>
+                </ul>
+                <p><strong>💻 Media Query Example:</strong></p>
+                <p><code>@media (max-width: 768px) { nav ul { flex-direction: column; } }</code></p>
+            </div>
+        </section>
+
+        <section id="task2">
+            <h2>🎨 Task -2: Website Redesign & Interactive Elements</h2>
+            <p>As part of my JavaScript assignment, I have answered all the required questions below. This section explains the interactive elements I incorporated, the design features implemented, and the JavaScript concepts applied to enhance the user experience of this portfolio website.</p>
+
+            <div class="question">
+                <h3>1. Which website/section of the website did you choose? Why?</h3>
+                <p><strong>🎯 I chose the Hobbies section for redesign.</strong></p>
+                <p>Reason: The hobbies section is important for showcasing personal interests and personality. I wanted to make it more interactive and user-friendly, allowing visitors to quickly find specific hobbies they're interested in learning about.</p>
+            </div>
+
+            <div class="question">
+                <h3>2. What did you identify as weaknesses in that page?</h3>
+                <p><strong>⚠️ Weaknesses identified:</strong></p>
+                <ul>
+                    <li>No way to quickly find specific hobbies - users had to scroll through all cards</li>
+                    <li>Static content with no user interaction</li>
+                    <li>Limited engagement - visitors could only read but not interact</li>
+                    <li>No search or filter functionality</li>
+                </ul>
+            </div>
+
+            <div class="question">
+                <h3>3. What are your main ideas for improving the page?</h3>
+                <p><strong>💡 Main improvements:</strong></p>
+                <ul>
+                    <li>Added a real-time search filter to find hobbies quickly</li>
+                    <li>Implemented smooth card animations on hover</li>
+                    <li>Added a scroll-to-top button for better navigation</li>
+                    <li>Created interactive form validation for better user feedback</li>
+                    <li>Added typing effect for the header text</li>
+                </ul>
+            </div>
+
+            <div class="question">
+                <h3>4. Which interactive elements did you incorporate into your design?</h3>
+                <p><strong>🎮 Interactive elements added:</strong></p>
+                <ul>
+                    <li>🔍 <strong>Search Filter:</strong> Real-time filtering of hobby cards as user types</li>
+                    <li>🖱️ <strong>Hover Effects:</strong> Cards animate and highlight on mouse hover</li>
+                    <li>📜 <strong>Scroll-to-Top Button:</strong> Appears when scrolling down, smoothly scrolls back to top</li>
+                    <li>✅ <strong>Form Validation:</strong> Contact form with real-time validation and notifications</li>
+                    <li>⌨️ <strong>Typing Effect:</strong> Animated text effect for header description</li>
+                    <li>📱 <strong>Mobile Menu:</strong> Responsive hamburger menu for mobile devices</li>
+                </ul>
+            </div>
+
+            <div class="question">
+                <h3>5. Give two specific examples from the page that you think are better after your redesign. Explain why.</h3>
+                <p><strong>✨ Example 1: Search Filter</strong></p>
+                <p>Before: Users had to manually scroll through all 6 hobby cards to find what they wanted.</p>
+                <p>After: Added a search input that filters cards in real-time as the user types. If a user types "reading", only the "Reading Technical Books" card remains visible. This saves time and improves user experience significantly.</p>
+
+                <p><strong>✨ Example 2: Scroll-to-Top Button</strong></p>
+                <p>Before: On long pages, users had to manually scroll back up to navigate to other sections.</p>
+                <p>After: Added a floating button in the bottom-right corner that appears after scrolling 300px. Clicking it smoothly scrolls back to the top. This is especially useful on mobile devices where screen space is limited.</p>
+            </div>
+
+            <div class="question">
+                <h3>6. Which mouse and keypress elements did you use?</h3>
+                <p><strong>🖱️ Mouse events used:</strong></p>
+                <ul>
+                    <li><code>mouseenter</code> - Triggered when mouse enters a card, adds highlight effect</li>
+                    <li><code>mouseleave</code> - Triggered when mouse leaves a card, removes highlight</li>
+                    <li><code>click</code> - Used for scroll-to-top button, form submission, and navigation</li>
+                    <li><code>scroll</code> - Detects page scroll position to show/hide scroll-to-top button</li>
+                </ul>
+
+                <p><strong>⌨️ Keypress events used:</strong></p>
+                <ul>
+                    <li><code>input</code> - Used in search filter to detect keystrokes and update results in real-time</li>
+                    <li><code>change</code> - Used in form inputs and dropdowns</li>
+                </ul>
+            </div>
+
+            <div class="question">
+                <h3>7. How does mouseover event differ in its effects from mouseenter and mouseleave events?</h3>
+                <p><strong>🔄 Event Differences:</strong></p>
+
+                <p><strong>mouseover:</strong></p>
+                <ul>
+                    <li>Fires when the pointer enters an element OR any of its descendants</li>
+                    <li>Bubbles up through the DOM hierarchy</li>
+                    <li>Can trigger multiple times when moving between child elements</li>
+                    <li>Use case: When you need to detect entry into a container and all its children</li>
+                </ul>
+
+                <p><strong>mouseenter:</strong></p>
+                <ul>
+                    <li>Fires only when the pointer enters the element itself (not descendants)</li>
+                    <li>Does NOT bubble - stays on the target element</li>
+                    <li>Triggers only once when entering the element</li>
+                    <li>Use case: Highlighting a card when the mouse enters its main area</li>
+                </ul>
+
+                <p><strong>mouseleave:</strong></p>
+                <ul>
+                    <li>Fires when the pointer leaves the element itself (not descendants)</li>
+                    <li>Does NOT bubble - stays on the target element</li>
+                    <li>Triggers only once when leaving the element</li>
+                    <li>Use case: Removing highlight when mouse leaves the card area</li>
+                </ul>
+
+                <p><strong>💡 Practical Example:</strong></p>
+                <p>In my website, I use <code>mouseenter</code> and <code>mouseleave</code> for card effects because I want the highlight to apply only when entering the card's main area, not when moving between child elements inside the card (like links or text).</p>
+            </div>
+        </section>
+
+        <section id="task2extra">
+            <h2>📋 Task -2 Extra: CV/Bio-data Website Design</h2>
+            <p>As part of the CV/Bio-data website assignment, I have answered all the required questions below. This section explains the design choices, implementation decisions, and technical concepts used in building the CV webpage with parallax effect.</p>
+
+            <div class="question">
+                <h3>1. Did you use any W3 Schools templates or did you design the parallax on your own?</h3>
+                <p><strong>❌ I did NOT use any W3 Schools templates.</strong></p>
+                <p>I designed the parallax effect on my own using pure CSS. The parallax effect is created using:</p>
+                <ul>
+                    <li><code>background-attachment: fixed;</code> - This makes the background image stay fixed while the content scrolls</li>
+                    <li><code>background-size: cover;</code> - Ensures the image covers the entire viewport</li>
+                    <li><code>position: fixed;</code> - Used on the parallax container to keep it in place</li>
+                </ul>
+                <p>I also added a gradient overlay to improve text readability over the background image.</p>
+            </div>
+
+            <div class="question">
+                <h3>2. Which sections did you put in your CV?</h3>
+                <p><strong>📑 I included the following sections in my CV:</strong></p>
+                <ul>
+                    <li><strong>👤 About Me:</strong> Personal introduction, professional objective, and languages known</li>
+                    <li><strong>🎓 Education:</strong> M.Tech (pursuing), B.Tech (CGPA 8.53), Intermediate (93%), SSC (9.5 CGPA)</li>
+                    <li><strong>💻 Technical Skills:</strong> Programming (Python, C, Java), Data Analysis (Power BI, Tableau), ML, SQL</li>
+                    <li><strong>🚀 Projects:</strong> Tata Data Visualization, Predictive Maintenance, Customer Segmentation, Sales Analysis</li>
+                    <li><strong>🎖️ Certifications:</strong> Cisco AICTE, Microsoft Python, AWS ML, TCS iON NQT</li>
+                    <li><strong>🎯 Hobbies & Interests:</strong> Reading, Problem-Solving, Blogging, Open Source, NSS PR</li>
+                    <li><strong>📞 Contact:</strong> Email, Phone, Location, GitHub, LinkedIn, Instagram</li>
+                </ul>
+            </div>
+
+            <div class="question">
+                <h3>3. What colour combinations did you give? Anything more than the usual dark mode?</h3>
+                <p><strong>🎨 I implemented TWO color themes:</strong></p>
+                
+                <p><strong>Default Theme:</strong></p>
+                <ul>
+                    <li>Background: White (#ffffff)</li>
+                    <li>Text: Black (#333333)</li>
+                    <li>Sidebar: Dark Blue (#2c3e50)</li>
+                    <li>Accent: Bright Blue (#3498db)</li>
+                </ul>
+
+                <p><strong>Alternate Theme (Blue/Cream):</strong></p>
+                <ul>
+                    <li>Background: Cream (#f5f5dc)</li>
+                    <li>Text: Blue (#1a5276)</li>
+                    <li>Sidebar: Dark Blue (#1a3a5c)</li>
+                    <li>Accent: Blue (#1a5276)</li>
+                </ul>
+
+                <p>The theme switching is implemented using CSS variables and JavaScript to toggle a class on the body element.</p>
+            </div>
+
+            <div class="question">
+                <h3>4. Which interactive elements did you incorporate into your design?</h3>
+                <p><strong>🎮 Interactive elements in the CV:</strong></p>
+                <ul>
+                    <li><strong>🖱️ Clickable Navigation:</strong> Left sidebar with anchor links to all CV sections</li>
+                    <li><strong>🎨 Theme Toggle:</strong> Two buttons to switch between Default and Blue/Cream themes</li>
+                    <li><strong>📍 Active Link Highlighting:</strong> Current section highlighted as user scrolls</li>
+                    <li><strong>✨ Section Animations:</strong> Smooth fade-in and slide-up animations on scroll</li>
+                    <li><strong>🃏 Card Hover Effects:</strong> Cards shift right and show shadow on hover</li>
+                    <li><strong>🏷️ Skill Tag Hover:</strong> Tags scale up on hover</li>
+                    <li><strong>💾 Theme Persistence:</strong> Theme preference saved in localStorage</li>
+                </ul>
+            </div>
+
+            <div class="question">
+                <h3>5. Briefly explain your Javascript code for interactive portions of the webpage.</h3>
+                <p><strong>📜 JavaScript Functions:</strong></p>
+
+                <p><strong>1. setTheme(theme) Function:</strong></p>
+                <ul>
+                    <li>Toggles the <code>theme-alternate</code> class on the body element</li>
+                    <li>Updates button active states</li>
+                    <li>Saves theme preference to localStorage</li>
+                </ul>
+
+                <p><strong>2. Active Link Highlighting:</strong></p>
+                <ul>
+                    <li>Uses scroll event listener to detect current scroll position</li>
+                    <li>Compares scroll position with each section's offset</li>
+                    <li>Adds/removes 'active' class on navigation links</li>
+                </ul>
+
+                <p><strong>3. Section Animations (Intersection Observer):</strong></p>
+                <ul>
+                    <li>Creates IntersectionObserver to watch for sections entering viewport</li>
+                    <li>When section becomes visible, sets opacity to 1 and removes transform</li>
+                    <li>Initial state: opacity: 0, transform: translateY(20px)</li>
+                </ul>
+
+                <p><strong>4. Page Load:</strong></p>
+                <ul>
+                    <li>DOMContentLoaded event loads saved theme from localStorage</li>
+                    <li>Sets up all event listeners and observers</li>
+                </ul>
+            </div>
+
+            <div class="question">
+                <h3>6. Did you use different coloured backgrounds to distinguish between the left and right parts? Which colours and why?</h3>
+                <p><strong>✅ Yes, I used different colored backgrounds:</strong></p>
+
+                <p><strong>Left Sidebar (25% width):</strong></p>
+                <ul>
+                    <li>Default: Dark Blue (#2c3e50)</li>
+                    <li>Alternate: Darker Blue (#1a3a5c)</li>
+                    <li><strong>Why:</strong> Creates a professional sidebar that stands out, provides navigation with good contrast</li>
+                </ul>
+
+                <p><strong>Right Content (75% width):</strong></p>
+                <ul>
+                    <li>Default: White (#ffffff) with semi-transparent sections</li>
+                    <li>Alternate: Cream (#f5f5dc) with semi-transparent sections</li>
+                    <li><strong>Why:</strong> White/cream provides clean readability for the CV content, sections have slight transparency to show parallax effect underneath</li>
+                </ul>
+
+                <p><strong>The color choices:</strong></p>
+                <ul>
+                    <li>Blue conveys trust, professionalism, and competence - perfect for a CV</li>
+                    <li>Dark sidebar creates visual hierarchy and anchors the page</li>
+                    <li>Light content area ensures readability and a clean, modern look</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Sivamani Pittala. All rights reserved. ✨</p>
+        <p>
+            <a href="https://www.instagram.com/sivamani.pittala/">📸 Instagram</a> | 
+            <a href="https://www.linkedin.com/in/sivamani-pittala">💼 LinkedIn</a> | 
+            <a href="https://github.com/sivamaniPITTALA">🐙 GitHub</a>
+        </p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

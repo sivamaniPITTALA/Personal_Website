@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable - Sivamani Pittala</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="education.html">🎓 Education</a></li>
+            <li><a href="hobbies.html">🎯 Hobbies</a></li>
+            <li><a href="technical.html">💻 Technical</a></li>
+            <li><a href="miscellaneous.html">📱 Social Media</a></li>
+            <li><a href="contact.html">📞 Contact</a></li>
+            <li class="dropdown">
+                <a href="questions.html" class="dropbtn">❓ Q&A ▾</a>
+                <div class="dropdown-content">
+                    <a href="questions.html#task1">Task 1 - HTML/CSS</a>
+                    <a href="questions.html#task2">Task 2 - JavaScript</a>
+                    <a href="questions.html#task2extra">Task 2 Extra - CV Design</a>
+                </div>
+            </li>
+            <li><a href="timetable.html" class="active">📅 Timetable</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>📅 M.Tech Computer Science Timetable</h1>
+        <p>Interactive Timetable with Elective Selection</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Filter Options</h2>
+            <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
+                <div>
+                    <label for="program-select"><strong>Program:</strong></label>
+                    <select id="program-select">
+                        <option value="mtech-cs" selected>M.Tech Computer Science</option>
+                        <!-- Add more programs if needed -->
+                    </select>
+                </div>
+                <div>
+                    <label><strong>Select exactly 4 Electives (E1-E6):</strong></label>
+                    <div id="elective-options" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem; width: 100%;">
+                        <div class="elective-bin" style="border: 1px solid #ddd; padding: 10px; border-radius: 5px; background: #f9f9f9;">
+                            <label><input type="checkbox" class="bin-check" data-bin="E1" checked> <strong>E1 (SS/NS)</strong></label>
+                            <select class="bin-select" style="width: 100%; margin-top: 5px; padding: 5px;">
+                                <option value="System Security (MAS) (CS473)">System Security (MAS) (CS473)</option>
+                                <option value="Network Security (WN) (CS475)" selected>Network Security (WN) (CS475)</option>
+                            </select>
+                        </div>
+                        <div class="elective-bin" style="border: 1px solid #ddd; padding: 10px; border-radius: 5px; background: #f9f9f9;">
+                            <label><input type="checkbox" class="bin-check" data-bin="E2" checked> <strong>E2 (DL/SC)</strong></label>
+                            <select class="bin-select" style="width: 100%; margin-top: 5px; padding: 5px;">
+                                <option value="Deep Learning (BSR) (AI473)">Deep Learning (BSR) (AI473)</option>
+                                <option value="Soft Computing (PSP)" selected>Soft Computing (PSP)</option>
+                            </select>
+                        </div>
+                        <div class="elective-bin" style="border: 1px solid #ddd; padding: 10px; border-radius: 5px; background: #f9f9f9;">
+                            <label><input type="checkbox" class="bin-check" data-bin="E3"> <strong>E3 (ML/BCT)</strong></label>
+                            <select class="bin-select" style="width: 100%; margin-top: 5px; padding: 5px;">
+                                <option value="Machine Learning (KSR) (AI472)" selected>Machine Learning (KSR) (AI472)</option>
+                                <option value="Blockchain Technologies (NRR) (CS426)">Blockchain Technologies (NRR) (CS426)</option>
+                            </select>
+                        </div>
+                        <div class="elective-bin" style="border: 1px solid #ddd; padding: 10px; border-radius: 5px; background: #f9f9f9;">
+                            <label><input type="checkbox" class="bin-check" data-bin="E4" checked> <strong>E4 (ANM/CC/EH)</strong></label>
+                            <select class="bin-select" style="width: 100%; margin-top: 5px; padding: 5px;">
+                                <option value="Advanced Network Management (MAS)">Advanced Network Management (MAS)</option>
+                                <option value="Cloud Computing (SNS) (CS472)" selected>Cloud Computing (SNS) (CS472)</option>
+                                <option value="Ethical Hacking (DP)">Ethical Hacking (DP)</option>
+                            </select>
+                        </div>
+                        <div class="elective-bin" style="border: 1px solid #ddd; padding: 10px; border-radius: 5px; background: #f9f9f9;">
+                            <label><input type="checkbox" class="bin-check" data-bin="E5" checked> <strong>E5 (CIP/DDPC/VIR)</strong></label>
+                            <select class="bin-select" style="width: 100%; margin-top: 5px; padding: 5px;">
+                                <option value="Colour Image Processing (CB)">Colour Image Processing (CB)</option>
+                                <option value="Distributed Data Processing Cloud (SNS) (CS481)">Distributed Data Processing Cloud (SNS) (CS481)</option>
+                                <option value="(CS481) VIRTUALIZAION RW" selected>(CS481) VIRTUALIZAION RW</option>
+                            </select>
+                        </div>
+                        <div class="elective-bin" style="border: 1px solid #ddd; padding: 10px; border-radius: 5px; background: #f9f9f9;">
+                            <label><input type="checkbox" class="bin-check" data-bin="E6"> <strong>E6 (NLP/IOT)</strong></label>
+                            <select class="bin-select" style="width: 100%; margin-top: 5px; padding: 5px;">
+                                <option value="Natural Language Processing (VN) (AI474)" selected>Natural Language Processing (VN) (AI474)</option>
+                                <option value="Internet Of Things (NKS)">Internet Of Things (NKS)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">Note: You must select exactly 4 elective bins. Choose one subject from each selected bin.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Timetable</h2>
+            <table id="timetable-table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>09:00 - 11:00</td>
+                        <td class="elective-slot" data-slot="E6">E6</td>
+                        <td class="elective-slot" data-slot="E1">E1</td>
+                        <td class="elective-slot" data-slot="E6">E6</td>
+                        <td class="elective-slot" data-slot="E1">E1</td>
+                        <td class="elective-slot" data-slot="E3">E3</td>
+                    </tr>
+                    <tr>
+                        <td>11:00 - 13:00</td>
+                        <td>Software Engineering (SAM)</td>
+                        <td class="elective-slot" data-slot="E3">E3</td>
+                        <td class="elective-slot" data-slot="E2">E2</td>
+                        <td style="padding: 0;">
+                            <div style="display: flex; flex-direction: column; height: 100%;">
+                                <div style="padding: 10px; border-bottom: 1px solid #ddd;">Software Engineering (SAM)</div>
+                                <div style="padding: 10px;">Communication Skills</div>
+                            </div>
+                        </td>
+                        <td class="elective-slot" data-slot="E4">E4</td>
+                    </tr>
+                    <tr>
+                        <td>13:00 - 14:00</td>
+                        <td colspan="5" style="text-align: center; font-weight: bold; background-color: #f8f9fa;">LUNCH BREAK</td>
+                    </tr>
+                    <tr>
+                        <td>14:00 - 16:00</td>
+                        <td class="elective-slot" data-slot="E5">E5</td>
+                        <td>Software Engineering Lab (SAM)</td>
+                        <td style="padding: 0;">
+                            <div style="display: flex; flex-direction: column; height: 100%;">
+                                <div class="elective-slot" data-slot="E4" style="padding: 10px; border-bottom: 1px solid #ddd;">E4</div>
+                                <div style="padding: 10px;">IT Lab (CB)</div>
+                            </div>
+                        </td>
+                        <td class="elective-slot" data-slot="E5">E5</td>
+                        <td>Communication Skills</td>
+                    </tr>
+                    <tr>
+                        <td>16:00 - 18:00</td>
+                        <td class="elective-slot" data-slot="E2">E2</td>
+                        <td style="padding: 0;">
+                            <div style="display: flex; flex-direction: column; height: 100%;">
+                                <div style="padding: 10px; border-bottom: 1px solid #ddd;">Software Engineering Lab (SAM)</div>
+                                <div class="elective-slot" data-slot="E4" style="padding: 10px;">E4</div>
+                            </div>
+                        </td>
+                        <td>IT Lab (CB)</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Sivamani Pittala. All rights reserved. ✨</p>
+        <p>
+            <a href="https://www.instagram.com/sivamani.pittala/">📸 Instagram</a> |
+            <a href="https://www.linkedin.com/in/sivamani-pittala">💼 LinkedIn</a> |
+            <a href="https://github.com/sivamaniPITTALA">🐙 GitHub</a>
+        </p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
