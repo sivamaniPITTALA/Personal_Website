@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task III - A-Frame VR Room</title>
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0d1117;
+      color: #f0f6fc;
+    }
+
+    .note {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 10;
+      padding: 10px 12px;
+      background: rgba(0, 0, 0, 0.65);
+      border: 1px solid rgba(240, 246, 252, 0.25);
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+  </style>
+</head>
+<body>
+  <div class="note">
+    Task III VR Room (4m x 3m x 3m)<br />
+    Look at the wall screen and click to play/pause.
+  </div>
+
+  <a-scene>
+    <a-assets>
+      <video
+        id="screenVideo"
+        preload="auto"
+        loop
+        muted
+        crossorigin="anonymous"
+        playsinline
+        webkit-playsinline
+      ></video>
+      <img id="bannerImg" src="https://cdn.aframe.io/a-painter/images/floor.jpg" crossorigin="anonymous" />
+    </a-assets>
+
+    <a-sky color="#9dc4ff"></a-sky>
+
+    <a-plane position="0 0 0" rotation="-90 0 0" width="3" height="4" color="#9aa0a6"></a-plane>
+
+    <a-plane position="0 3 0" rotation="90 0 0" width="3" height="4" color="#b9bfc7"></a-plane>
+
+    <a-plane position="0 1.5 -2" width="3" height="3" color="#e7d9c6"></a-plane>
+    <a-plane position="0 1.5 2" rotation="0 180 0" width="3" height="3" color="#d9e6f2"></a-plane>
+    <a-plane position="-1.5 1.5 0" rotation="0 90 0" width="4" height="3" color="#f0e4d6"></a-plane>
+    <a-plane position="1.5 1.5 0" rotation="0 -90 0" width="4" height="3" color="#e8d8c8"></a-plane>
+
+    <a-plane position="0 1.5 -1.98" width="1.9" height="1.2" color="#222"></a-plane>
+    <a-video
+      id="videoPanel"
+      class="clickable"
+      src="#screenVideo"
+      position="0 1.5 -1.94"
+      width="1.7"
+      height="0.95"
+    ></a-video>
+
+    <a-curvedimage
+      src="#bannerImg"
+      radius="3"
+      theta-length="70"
+      height="0.55"
+      position="0 2.35 1.4"
+      rotation="0 180 0"
+    ></a-curvedimage>
+
+    <a-circle position="0 0.01 0" rotation="-90 0 0" radius="0.8" color="#2d6a4f"></a-circle>
+
+    <a-box position="-0.9 0.35 0.9" depth="0.6" height="0.7" width="0.6" color="#bc6c25"></a-box>
+    <a-box position="0.95 0.25 0.7" depth="0.4" height="0.5" width="0.4" color="#6c757d"></a-box>
+
+    <a-link
+      href="index.html"
+      title="Main Website"
+      position="1.2 1.2 -1.8"
+      scale="0.45 0.45 0.45"
+      color="#1d3557"
+    ></a-link>
+
+    <a-entity position="0 1.6 1.2">
+      <a-camera>
+        <a-cursor raycaster="objects: .clickable"></a-cursor>
+      </a-camera>
+    </a-entity>
+  </a-scene>
+
+  <script>
+    const video = document.getElementById('screenVideo');
+    const panel = document.getElementById('videoPanel');
+    const remoteVideoUrl = 'https://scis.uohyd.ac.in/~chakcs/ITLab2026/oop_class.mp4';
+    const localVideoUrl = 'video/oop_class.mp4';
+    let canPlayLoaded = false;
+    let remoteFallbackSet = false;
+
+    const setRemoteFallback = () => {
+      if (remoteFallbackSet) return;
+      remoteFallbackSet = true;
+      video.pause();
+      video.setAttribute('src', remoteVideoUrl);
+      video.load();
+    };
+
+    video.addEventListener('canplay', () => {
+      canPlayLoaded = true;
+    });
+
+    video.addEventListener('error', setRemoteFallback);
+
+    // Start with local file first.
+    video.setAttribute('src', localVideoUrl);
+    video.load();
+
+    // If local load is too slow, try remote URL.
+    setTimeout(() => {
+      if (!canPlayLoaded) {
+        setRemoteFallback();
+      }
+    }, 5000);
+
+    panel.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        panel.setAttribute('material', 'color', '#ffffff');
+      } else {
+        video.pause();
+        panel.setAttribute('material', 'color', '#aaaaaa');
+      }
+    });
+
+    panel.setAttribute('material', 'color', '#aaaaaa');
+  </script>
+</body>
+</html>
